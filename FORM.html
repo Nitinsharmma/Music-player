@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up Form</title>
+    
+</head>
+<style>
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #561581;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background-image: url("pexels-pok-rie-33563-2049422.jpg");
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.form-toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-toggle button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    width: 50%;
+}
+
+.form-toggle button.active {
+    border-bottom: 2px solid #007bff;
+    font-weight: bold;
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+<body>
+    <div class="form-container">
+        <div class="form-toggle">
+            <button id="loginBtn" class="active">Login</button>
+            <button id="signupBtn">Sign Up</button>
+        </div>
+        <form id="loginForm" class="form" action="#" method="post">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <form id="signupForm" class="form" action="#" method="post" style="display: none;">
+            <h2>Sign Up</h2>
+            <input type="text" id="signupName" placeholder="Full Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+
+    // Toggle between login and sign-up forms
+    loginBtn.addEventListener('click', function () {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        loginBtn.classList.add('active');
+        signupBtn.classList.remove('active');
+    });
+
+    signupBtn.addEventListener('click', function () {
+        signupForm.style.display = 'block';
+        loginForm.style.display = 'none';
+        signupBtn.classList.add('active');
+        loginBtn.classList.remove('active');
+    });
+
+    // Set default to Login form
+    loginBtn.click();
+});
+
+
+     </script>
+</body>
+</html>
